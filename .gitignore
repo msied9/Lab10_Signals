@@ -1,0 +1,15 @@
+# Object files
+*.o
+
+# 
+Executables
+signal_handler
+signal_alarm
+signal_segfault
+signal_sigaction
+recv_signal
+send_signal
+
+# Misc
+core
+*:Zone.Identifier

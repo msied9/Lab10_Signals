@@ -12,7 +12,8 @@
 /**
  * @brief Handler for SIGUSR1 registered with SA_SIGINFO
  * @param sig  the signal number
- * @param info structure with details about the signal (si_pid = sender)
+ * @param info structure with details about the signal (si_pid = sender,
+ *             si_value = data sent with sigqueue)
  * @param ctx  unused context pointer
  */
 void handle_usr1(int sig, siginfo_t *info, void *ctx)
@@ -20,6 +21,7 @@ void handle_usr1(int sig, siginfo_t *info, void *ctx)
     (void)sig;
     (void)ctx;
     printf("Received SIGUSR1 from process %d\n", (int)info->si_pid);
+    printf("Received SIGUSR1 with value %d\n", info->si_value.sival_int);
 }
 
 int main(void)
